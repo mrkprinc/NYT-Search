@@ -15,4 +15,9 @@ router.route('/articles')
     res.send('delete request');
   })
 
+router.route('/scrape')
+  .get((req, res) => {
+    
+  })
+
 module.exports = router;
