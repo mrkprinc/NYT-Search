@@ -3,20 +3,23 @@ import axios from 'axios';
 import {SearchBox, ResultsPanel} from './index';
 
 class SearchPage extends React.Component {
-  state = {
-    displayResults: false,
-    resultSet: []
-  }
-
   constructor() {
-    super()
-    this.clickSearch = this.clickSearch.bind(this);
+    super();
+    this.state = {
+      displayResults: false,
+      resultSet: []
+    }
   }
 
   clickSearch = (e) => {
     e.preventDefault();
-    // axios.get('https://intense-island-98620.herokuapp.com/api')
-    //   .then(response => console.log(response));
+    // axios.get('https://intense-island-98620.herokuapp.com/api', {
+    //   params: {
+    //     query: document.getElementById('txtTopic').value.trim(),
+    //     startDate: document.getElementById('txtStartDate').value.trim(),
+    //     endDate: document.getElementById('txtEndDate').value.trim()
+    //   }
+    // }).then(response => console.log(response));
     this.setState({displayResults: true});
   }
 
