@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {SearchPage} from './index';
+import './App.css';
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
       <Router>

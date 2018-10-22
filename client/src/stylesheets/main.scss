@@ -1,0 +1,8 @@
+@import './global.scss';
+
+section {
+  padding: $standard-padding;
+  margin: $standard-margin auto;
+  @include standard-border($black);
+  background-image: linear-gradient($grey, white);
+}

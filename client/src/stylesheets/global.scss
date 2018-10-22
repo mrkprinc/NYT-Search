@@ -1,0 +1,13 @@
+$standard-padding: 14px 18px;
+$standard-margin: 8px;
+
+@mixin standard-border($color) {
+  border-width: 2px 0 0 3px;
+  border-style: solid;
+  border-color: $color;
+}
+
+$black: #333;
+$grey: #777;
+$red: red;
+$blue: blue;
