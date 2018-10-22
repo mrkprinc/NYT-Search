@@ -3,8 +3,7 @@ import {SearchBox, ResultsPanel} from './index';
 
 class SearchPage extends React.Component {
   state = {
-    // TEMP
-    displayResults: true,
+    displayResults: false,
     resultSet: []
   }
 
@@ -15,7 +14,7 @@ class SearchPage extends React.Component {
 
   clickSearch = (e) => {
     e.preventDefault();
-    console.log('click');
+    this.setState({displayResults: true});
   }
 
   render() {
