@@ -15,8 +15,8 @@ class SearchPage extends React.Component {
 
   clickSearch = (e) => {
     e.preventDefault();
-    axios.get('https://intense-island-98620.herokuapp.com/api')
-      .then(response => console.log(response));
+    // axios.get('https://intense-island-98620.herokuapp.com/api')
+    //   .then(response => console.log(response));
     this.setState({displayResults: true});
   }
 
