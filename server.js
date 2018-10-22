@@ -13,7 +13,7 @@ if(process.env.NODE_ENV === 'production') {
 app.use(routes);
 
 mongoose.Promise = Promise;
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nytimes");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nytimes", {useNewUrlParser: true});
 
 app.listen(PORT, ()=> {
   console.log(`-- server ready on port ${PORT} --`)

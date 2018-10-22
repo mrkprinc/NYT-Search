@@ -5,6 +5,7 @@
   "author": "mrkprinc <36653433+mrkprinc@users.noreply.github.com>",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "concurrently": "^4.0.1",
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "if-env": "^1.0.4",
@@ -14,10 +15,10 @@
   "scripts": {
     "start": "if-env NODE_ENV=production && yarn start:prod || yarn start:dev",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"yarn client\"",
+    "start:prod": "node server.js",
     "client": "cd client && yarn start"
   },
   "devDependencies": {
-    "concurrently": "^4.0.1",
     "nodemon": "^1.18.4"
   }
 }
