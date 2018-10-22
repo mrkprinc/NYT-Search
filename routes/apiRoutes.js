@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const db = require('../models');
+const nyt = require('../models/webAPI/nytAPI');
 
 router.route('/saved')
   .get((req, res) => {
@@ -17,7 +18,10 @@ router.route('/saved')
 
 router.route('/')
   .get((req, res) => {
-    res.json({result1: 'result1', result2: 'result2'});
+    nyt.searchArticles(req.params)
+      .then(result => {
+        res.json(result);
+      })
   })
 
 module.exports = router;
