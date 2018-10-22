@@ -15,7 +15,7 @@ router.route('/saved')
     res.send('delete request');
   })
 
-router.route('/api')
+router.route('/')
   .get((req, res) => {
     res.json({result1: 'result1', result2: 'result2'});
   })
