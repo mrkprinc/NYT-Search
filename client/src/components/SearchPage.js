@@ -11,7 +11,7 @@ class SearchPage extends React.Component {
     }
   }
 
-  clickSearch = (e) => {
+  clickSearch = e => {
     e.preventDefault();
     // axios.get('https://intense-island-98620.herokuapp.com/api', {
     //   params: {
@@ -20,24 +20,44 @@ class SearchPage extends React.Component {
     //     endDate: document.getElementById('txtEndDate').value.trim()
     //   }
     // }).then(response => console.log(response));
-    this.setState({displayResults: true});
+    this.setState({
+      displayResults: true,
+      // TEMP
+      resultSet: [{
+        _id: 4,
+        headline: 'Test Head',
+        snippet: 'this is the story that happened',
+        date: 'on this day',
+        url: 'https://google.ca'
+      }]
+    });
+  }
+
+  clickSave = e => {
+    // save using this.state.resultSet[index]
+    e.target.classList.add('saved');
   }
 
   render() {
-    let content = [
-      <SearchBox clickSearch={this.clickSearch} key={0} />
-    ]
     if(this.state.displayResults) {
-      content.push(
-        <ResultsPanel resultSet={this.resultSet} key={1} />
+      return (
+        <main>
+          <SearchBox clickSearch={this.clickSearch} key={0} />,
+          <ResultsPanel 
+            resultSet={this.state.resultSet} 
+            resultSource={'webAPI'} 
+            clickSave={this.clickSave} 
+            key={1} 
+          />
+        </main>
       )
+    } else {
+      return (
+        <main>
+          <SearchBox clickSearch={this.clickSearch} key={0} />
+        </main>
+      ) 
     }
-
-    return (
-      <main>
-        {content}
-      </main>
-    )
   }
 }
 

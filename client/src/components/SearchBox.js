@@ -3,7 +3,7 @@ import React from 'react';
 const SearchBox = (props) => {
   return (
     <section>
-      <form>
+      <form onSubmit={(e) => e.preventDefault()}>
         <label htmlFor='txtTopic'>Topic: </label>
         <input id='txtTopic' type='text'></input>
         <label htmlFor='txtStartDate'>Start Date: </label>
