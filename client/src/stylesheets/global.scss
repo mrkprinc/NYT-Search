@@ -11,3 +11,8 @@ $black: #333;
 $grey: #777;
 $red: red;
 $blue: blue;
+
+%xCenter {
+  display: flex;
+  justify-content: center;
+}
