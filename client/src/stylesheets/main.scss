@@ -1,8 +1,36 @@
 @import './global.scss';
 
+main {
+  text-align: center;
+}
+
 section {
+  @extend %xCenter;
   padding: $standard-padding;
   margin: $standard-margin auto;
   @include standard-border($black);
   background-image: linear-gradient($grey, white);
+
+  &.resultsPanel {
+    text-align: left;
+
+    .dateSpan {
+      float: right;
+    }
+
+    .button {
+      display: inline-block;
+    }
+  }
+}
+
+form {
+  text-align: right;
+  div {
+    margin: 4px 0;
+  }
+}
+
+span, a {
+  margin: 0 6px;
 }

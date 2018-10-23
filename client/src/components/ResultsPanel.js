@@ -9,12 +9,13 @@ const ResultsPanel = (props) => {
         resultSource={props.resultSource}
         clickSave={props.clickSave} 
         key={article._id}
+        index={i}
       />
     )
   })
 
   return (
-    <section>
+    <section className='resultsPanel'>
       {results}
     </section>
   )
