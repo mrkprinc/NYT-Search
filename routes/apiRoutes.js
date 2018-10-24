@@ -18,7 +18,7 @@ router.route('/saved')
 
 router.route('/')
   .get((req, res) => {
-    nyt.searchArticles(req.params)
+    nyt.searchArticles(req.query)
       .then(result => {
         res.json(result);
       })
