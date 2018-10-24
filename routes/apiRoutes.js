@@ -5,7 +5,7 @@ const nyt = require('../models/webAPI/nytAPI');
 router.route('/saved')
   .get((req, res) => {
     db.Article
-      .find()
+      .find({active: 1})
       .then(response => {
         res.json(response)
       }).catch(err => console.log(err));
