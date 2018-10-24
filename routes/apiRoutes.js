@@ -16,7 +16,18 @@ router.route('/saved')
     res.send('delete request');
   })
 
-router.route('/')
+router.route('/:query/:startDate/:endDate')
+  .get((req, res) => {
+    nyt.searchArticles(req.params)
+    .then(result => {
+      res.json(result);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  })
+
+router.route('/:query')
   .get((req, res) => {
     nyt.searchArticles(req.params)
       .then(result => {

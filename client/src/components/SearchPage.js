@@ -13,33 +13,38 @@ class SearchPage extends React.Component {
 
   clickSearch = e => {
     e.preventDefault();
-    this.setState({displayResults: true});
-    axios.get('https://intense-island-98620.herokuapp.com/api', {
-      params: {
-        query: document.getElementById('txtTopic').value.trim(),
-        startDate: document.getElementById('txtStartDate').value.trim(),
-        endDate: document.getElementById('txtEndDate').value.trim()
-      }
-    }).then(response => {
-      let resultSet = response.map(article => {
-        return {
-          _id: article._id,
-          headline: article.headline.main,
-          snippet: article.snippet,
-          date: article.pub_date,
-          url: article.web_url
-        }
-      })
+    this.setState({
+      resultSet: [],
+      displayResults: true
+    });
+    let url = 'https://intense-island-98620.herokuapp.com/api/' + document.getElementById('txtTopic').value.trim();
+    let startEntered = document.getElementById('txtStartDate').value.trim();
+    let endEntered = document.getElementById('txtEndDate').value.trim();
+    if(startEntered && endEntered) {
+      url += `/${startEntered}/${endEntered}`;
+    }
+    axios.get(url).then(response => {
+      let resultSet = response.data
+        .filter(article => {return article.pub_date})
+        .map(article => {
+          return {
+            _id: article._id,
+            headline: article.headline.main,
+            snippet: article.snippet,
+            date: article.pub_date,
+            url: article.web_url
+          }
+        })
       this.setState({ resultSet });
     });
   }
 
   clickSave = e => {
-    axios.post('https://intense-island-98620.herokuapp.com/api', {
-      article: this.state.resultSet[parseInt(e.target.getAttribute('data-index'))]
+    let el = e.target;
+    axios.post('https://intense-island-98620.herokuapp.com/api/saved', {
+      article: this.state.resultSet[parseInt(el.getAttribute('data-index'))]
     }).then(response => {
-      console.log(response);
-      e.target.classList.add('saved');
+      el.classList.add('saved');
     }).catch(err => console.log(err));
   }
 

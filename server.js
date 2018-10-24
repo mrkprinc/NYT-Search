@@ -7,12 +7,21 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 var allowCrossDomain = function(req, res, next) {
+<<<<<<< HEAD
   res.header("Access-Control-Allow-Origin", "*"); // allow requests from any other server
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE'); // allow these verbs
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Cache-Control");
   next();
 }  
 app.use(allowCrossDomain); // plumbing it in as middleware
+=======
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Cache-Control");
+  next();
+}  
+app.use(allowCrossDomain); 
+>>>>>>> master
 
 app.use(express.urlencoded({extended: true}));
 if(process.env.NODE_ENV === 'production') {

@@ -32,6 +32,10 @@ section {
     background-color: $green;
     border: none;
     form {
+<<<<<<< HEAD
+=======
+      display: inline-block;
+>>>>>>> master
       text-align: right;
       div {
         margin: 4px 0;
@@ -50,6 +54,13 @@ section {
       display: flex;
       justify-content: space-between;
       width: 100%;
+      margin-bottom: 10px;
+      & > div {
+        text-align: left;
+        &:first-child {
+          width: 15%;
+        }
+      }
     }
   }
 }
@@ -62,6 +73,13 @@ span, a {
   flex-shrink: 0;
 }
 
+<<<<<<< HEAD
+=======
+.grow {
+  flex-grow: 1;
+}
+
+>>>>>>> master
 .button {
   display: inline-block;
   cursor: pointer;
