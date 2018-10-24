@@ -29,7 +29,7 @@ class SearchPage extends React.Component {
         .map(article => {
           return {
             _id: article._id,
-            headline: article.headline.main,
+            title: article.headline.main,
             snippet: article.snippet,
             date: article.pub_date,
             url: article.web_url,
@@ -42,10 +42,17 @@ class SearchPage extends React.Component {
 
   clickSave = e => {
     let el = e.target;
-    console.log({article: this.state.resultSet[parseInt(el.getAttribute('data-index'))]})
-    axios
-      .post('https://intense-island-98620.herokuapp.com/api/saved', this.state.resultSet[parseInt(el.getAttribute('data-index'))])
+    console.log(el);
+    axios({
+      method: 'POST',
+      // url: 'https://intense-island-98620.herokuapp.com/api/saved',
+      url: 'localhost:8080/api/saved',
+      contentType: 'application/json',
+      data: this.state.resultSet[parseInt(el.getAttribute('data-index'))]
+    })
+      // .post('https://intense-island-98620.herokuapp.com/api/saved', this.state.resultSet[parseInt(el.getAttribute('data-index'))])
       .then(response => {
+        console.log(response)
         el.classList.add('saved');
       })
       .catch(err => console.log(err));
@@ -59,7 +66,7 @@ class SearchPage extends React.Component {
           <ResultsPanel 
             resultSet={this.state.resultSet} 
             resultSource={'webAPI'} 
-            clickSave={this.clickSave} 
+            buttonClick={this.clickSave} 
             key={1} 
           />
         </main>

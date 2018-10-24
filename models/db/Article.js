@@ -10,6 +10,9 @@ const ArticleSchema = new Schema({
     type: String,
     required: true
   },
+  snippet: {
+    type: String,
+  },
   date: {
     type: Date,
     required: true

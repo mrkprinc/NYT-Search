@@ -2,7 +2,6 @@ import React from 'react';
 
 const Result = (props) => {
   let buttonText = props.resultSource === 'webAPI' ? 'Save' : 'Delete'; // resultSource == webAPI or db
-
   return (
     <div className='searchResult'>
       <div className='noShrink'>
@@ -10,13 +9,13 @@ const Result = (props) => {
       </div>
 
       <div className='grow'>
-        <strong>{props.article.headline}</strong><br />
+        <strong>{props.article.title}</strong><br />
         {props.article.snippet}
       </div>
 
       <div className='noShrink'>
         <a href={props.article.url} target='blank'>Go to Article</a>
-        <div className='button' onClick={props.clickSave} data-index={props.index}>{buttonText}</div>
+        <div className='button' onClick={props.buttonClick} data-index={props.index}>{buttonText}</div>
       </div>
     </div>
   )

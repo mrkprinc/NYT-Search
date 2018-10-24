@@ -9,8 +9,7 @@ const ResultsPanel = (props) => {
         <Result 
           article={article} 
           resultSource={props.resultSource}
-          clickSave={props.clickSave || ''}
-          clickDelete={props.clickDelete || ''}
+          buttonClick={props.buttonClick}
           key={article._id}
           index={i}
         />

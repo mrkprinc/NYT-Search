@@ -14,7 +14,8 @@ class SavedPage extends React.Component {
     axios
       .get('https://intense-island-98620.herokuapp.com/api/saved')
       .then(response => {
-        this.setState({ resultSet: response })
+        console.log(response);
+        this.setState({ dataSet: response.data })
       })
   }
 
