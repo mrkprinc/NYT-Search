@@ -42,20 +42,32 @@ class SearchPage extends React.Component {
 
   clickSave = e => {
     let el = e.target;
-    console.log(el);
-    axios({
-      method: 'POST',
-      // url: 'https://intense-island-98620.herokuapp.com/api/saved',
-      url: 'localhost:8080/api/saved',
-      contentType: 'application/json',
-      data: this.state.resultSet[parseInt(el.getAttribute('data-index'))]
-    })
-      // .post('https://intense-island-98620.herokuapp.com/api/saved', this.state.resultSet[parseInt(el.getAttribute('data-index'))])
-      .then(response => {
-        console.log(response)
-        el.classList.add('saved');
-      })
-      .catch(err => console.log(err));
+    console.log('click');
+    console.log(this.state.resultSet[parseInt(el.getAttribute('data-index'))])
+    fetch('https://intense-island-98620.herokuapp.com/api/saved', {
+      method: "POST", 
+      mode: "no-cors", // no-cors, cors, *same-origin
+      // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      // credentials: "same-origin", // include, same-origin, *omit
+      headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          // "Content-Type": "application/x-www-form-urlencoded",
+      },
+      // redirect: "follow", // manual, *follow, error
+      // referrer: "no-referrer", // no-referrer, *client
+      body: JSON.stringify(this.state.resultSet[parseInt(el.getAttribute('data-index'))]) // body data type must match "Content-Type" header
+  })
+    // axios({
+    //   method: 'POST',
+    //   url: 'https://intense-island-98620.herokuapp.com/api/saved',
+    //   data: this.state.resultSet[parseInt(el.getAttribute('data-index'))]
+    // })
+    //   // .post('https://intense-island-98620.herokuapp.com/api/saved', this.state.resultSet[parseInt(el.getAttribute('data-index'))])
+    //   .then(response => {
+    //     console.log(response)
+    //     el.classList.add('saved');
+    //   })
+    //   .catch(err => console.log(err));
   }
 
   render() {

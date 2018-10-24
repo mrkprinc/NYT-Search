@@ -11,10 +11,13 @@ router.route('/saved')
       }).catch(err => console.log(err));
   })
   .post((req, res) => {
+    console.log('-----------------------------------')
+    console.log(req.body);
     db.Article
       .create({
         articleId: req.body._id,
         title: req.body.headline,
+        snippet: req.body.snippet,
         date: req.body.date,
         url: req.body.url,
         createdAt: Date.now()
