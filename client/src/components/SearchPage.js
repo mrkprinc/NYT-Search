@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import {SearchBox, ResultsPanel} from './index';
 
 class SearchPage extends React.Component {
@@ -23,21 +22,25 @@ class SearchPage extends React.Component {
     if(startEntered && endEntered) {
       url += `/${startEntered}/${endEntered}`;
     }
-    axios.get(url).then(response => {
-      let resultSet = response.data
-        .filter(article => {return article.pub_date})
-        .map(article => {
-          return {
-            _id: article._id,
-            title: article.headline.main,
-            snippet: article.snippet,
-            date: article.pub_date,
-            url: article.web_url,
-            active: 1
-          }
-        })
-      this.setState({ resultSet });
-    });
+    fetch(url)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        let resultSet = data
+          .filter(article => {return article.pub_date})
+          .map(article => {
+            return {
+              _id: article._id,
+              title: article.headline.main,
+              snippet: article.snippet,
+              date: article.pub_date,
+              url: article.web_url,
+              active: 1
+            }
+          })
+        this.setState({ resultSet });
+      })
   }
 
   clickSave = e => {

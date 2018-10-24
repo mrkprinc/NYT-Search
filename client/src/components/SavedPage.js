@@ -1,6 +1,5 @@
 import React from 'react';
 import {ResultsPanel} from './index';
-import axios from 'axios';
 
 class SavedPage extends React.Component {
   constructor() {

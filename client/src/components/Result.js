@@ -1,11 +1,12 @@
 import React from 'react';
+import moment from 'moment';
 
 const Result = (props) => {
   let buttonText = props.resultSource === 'webAPI' ? 'Save' : 'Delete'; // resultSource == webAPI or db
   return (
     <div className='searchResult'>
       <div className='noShrink'>
-        <span className='dateSpan'>{props.article.date}</span>
+        <span className='dateSpan'>{moment(props.article.date).format('MMM Do YYYY')}</span>
       </div>
 
       <div className='grow'>
