@@ -53,6 +53,9 @@ section {
       margin-bottom: 10px;
       & > div {
         text-align: left;
+        &:first-child {
+          width: 15%;
+        }
       }
     }
   }
@@ -64,6 +67,10 @@ span, a {
 
 .noShrink {
   flex-shrink: 0;
+}
+
+.grow {
+  flex-grow: 1;
 }
 
 .button {

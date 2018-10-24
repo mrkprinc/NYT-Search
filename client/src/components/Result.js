@@ -9,7 +9,7 @@ const Result = (props) => {
         <span className='dateSpan'>{props.article.date}</span>
       </div>
 
-      <div>
+      <div className='grow'>
         <strong>{props.article.headline}</strong><br />
         {props.article.snippet}
       </div>
