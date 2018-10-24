@@ -11,8 +11,9 @@ router.route('/saved')
       }).catch(err => console.log(err));
   })
   .post((req, res) => {
-    console.log('-----------------------------------')
-    console.log(req.body._id);
+    let newArticle = req.body;
+    console.log('--------------------------');
+    console.log(newArticle);
     db.Article
       .create({
         articleId: req.body._id,
