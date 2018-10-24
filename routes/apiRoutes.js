@@ -18,6 +18,7 @@ router.route('/saved')
         snippet: req.body.snippet,
         date: req.body.date,
         url: req.body.url,
+        active: 1,
         createdAt: Date.now()
       })
       .then(response => {
@@ -25,30 +26,34 @@ router.route('/saved')
       })
       .catch(err => console.log(err));
   })
-  .delete((req, res) => {
-    res.send('delete request');
-  })
 
-router.route('/:query/:startDate/:endDate')
-  .get((req, res) => {
-    nyt.searchArticles(req.params)
+router.put('/saved/remove/:id', (req, res) => {
+  db.Article
+    .update({articleId: req.params.id}, {$set: {active: 0}})
+    .then(response => {
+      res.json(response);
+    })
+    .catch(err => console.log(err));
+})
+
+router.get('/:query/:startDate/:endDate', (req, res) => {
+  nyt.searchArticles(req.params)
     .then(result => {
       res.json(result);
     })
     .catch(err => {
       console.log(err);
     })
-  })
+})
 
-router.route('/:query')
-  .get((req, res) => {
-    nyt.searchArticles(req.params)
-      .then(result => {
-        res.json(result);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  })
+router.get('/:query', (req, res) => {
+  nyt.searchArticles(req.params)
+    .then(result => {
+      res.json(result);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+})
 
 module.exports = router;

@@ -75,7 +75,15 @@ span, a {
 
 .button {
   display: inline-block;
+  padding: 6px;
+  border: 1px solid $black;
   cursor: pointer;
+
+  &.saved, &.deleted {
+    color: $grey;
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: default;
+  }
 }
 
 .spin {
