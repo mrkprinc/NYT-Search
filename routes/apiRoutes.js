@@ -4,21 +4,25 @@ const nyt = require('../models/webAPI/nytAPI');
 
 router.route('/saved')
   .get((req, res) => {
-    // TEMP
-    res.send('get request');
+    db.Article
+      .find()
+      .then(response => {
+        res.json(response)
+      }).catch(err => console.log(err));
   })
   .post((req, res) => {
     db.Article
       .create({
-        articleId: req.body.article._id,
-        title: req.body.article.headline,
-        date: req.body.article.date,
-        url: req.body.article.url,
+        articleId: req.body._id,
+        title: req.body.headline,
+        date: req.body.date,
+        url: req.body.url,
         createdAt: Date.now()
       })
-      .then((err,response) => {
+      .then(response => {
         res.json(response);
       })
+      .catch(err => console.log(err));
   })
   .delete((req, res) => {
     // TEMP

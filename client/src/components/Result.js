@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Result = (props) => {
-  let buttonText = props.resultSource === 'webAPI' ? 'Save' : 'Delete'; // resultSource == webAPI or database
+  let buttonText = props.resultSource === 'webAPI' ? 'Save' : 'Delete'; // resultSource == webAPI or db
 
   return (
     <div className='searchResult'>

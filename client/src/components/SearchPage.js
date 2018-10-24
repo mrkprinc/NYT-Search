@@ -32,7 +32,8 @@ class SearchPage extends React.Component {
             headline: article.headline.main,
             snippet: article.snippet,
             date: article.pub_date,
-            url: article.web_url
+            url: article.web_url,
+            active: 1
           }
         })
       this.setState({ resultSet });
@@ -41,11 +42,13 @@ class SearchPage extends React.Component {
 
   clickSave = e => {
     let el = e.target;
-    axios.post('https://intense-island-98620.herokuapp.com/api/saved', {
-      article: this.state.resultSet[parseInt(el.getAttribute('data-index'))]
-    }).then(response => {
-      el.classList.add('saved');
-    }).catch(err => console.log(err));
+    console.log({article: this.state.resultSet[parseInt(el.getAttribute('data-index'))]})
+    axios
+      .post('https://intense-island-98620.herokuapp.com/api/saved', this.state.resultSet[parseInt(el.getAttribute('data-index'))])
+      .then(response => {
+        el.classList.add('saved');
+      })
+      .catch(err => console.log(err));
   }
 
   render() {

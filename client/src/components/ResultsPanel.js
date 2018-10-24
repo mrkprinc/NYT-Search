@@ -9,7 +9,8 @@ const ResultsPanel = (props) => {
         <Result 
           article={article} 
           resultSource={props.resultSource}
-          clickSave={props.clickSave} 
+          clickSave={props.clickSave || ''}
+          clickDelete={props.clickDelete || ''}
           key={article._id}
           index={i}
         />
@@ -18,7 +19,7 @@ const ResultsPanel = (props) => {
   } else results = (
     <div>
       <span className='spin'>✰</span>
-      <span>Searching for results...</span>
+      <span>Retrieving articles...</span>
     </div>
   )
 
