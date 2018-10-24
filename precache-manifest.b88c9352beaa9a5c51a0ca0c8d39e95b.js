@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/nyt-search/static/css/main.1b6f206e.chunk.css"
   },
   {
-    "revision": "4889ff669891a757a4f24872c19ba988",
+    "revision": "a4046db2a7329fa11b2963b3846d3e19",
     "url": "/nyt-search/index.html"
   }
 ];
