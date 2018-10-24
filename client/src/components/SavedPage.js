@@ -26,8 +26,16 @@ class SavedPage extends React.Component {
     url += this.state.dataSet[parseInt(el.getAttribute('data-index'))].articleId;
     fetch(url, {method: 'PUT'})
       .then(response => {
-        console.log(response);
         return response;
+      })
+      .then(() => {
+        fetch('https://intense-island-98620.herokuapp.com/api/saved')
+          .then(response => {
+            return response.json();
+          })
+          .then(data => {
+            this.setState({dataSet: data});
+          })
       })
   }
 

@@ -1,28 +1,40 @@
 import React from 'react';
 
-const ResultButton = (props) => {
-  let addedClass = '';
-  let buttonText = props.resultSource === 'webAPI' ? 'save' : 'delete';
-  switch(props.status) {
-    case 'saved':
-      [addedClass, buttonText] = 'saved';
-      break;
-    case 'deleted':
-      addedClass = 'deleted';
-      buttonText = 'Deleted'
-      break;
-    default:
+class ResultButton extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.addedClass = '';
+    this.buttonText = props.resultSource === 'webAPI' ? 'save' : 'delete';
+    this.state = {
+      status: 'click'
+    }
   }
 
-  return (
-    <div 
-      className={`button ${addedClass}`} 
-      data-index={props.index}
-      onClick={props.buttonClick}
-    >
-      {buttonText}
-    </div>
-  )
+  clickHandler = e => {
+    this.props.buttonClick(e);
+    this.setState({status: 'done'});
+  }
+
+  render() {
+    switch(this.state.status) {
+      case 'done':
+        [this.addedClass, this.buttonText] = 
+          this.props.resultSource === 'webAPI' ? ['saved', 'saved'] : ['deleted', 'deleted'];
+        break;
+      default:
+    }
+  
+    return (
+      <div 
+        className={`button ${this.addedClass}`} 
+        data-index={this.props.index}
+        onClick={this.clickHandler}
+      >
+        {this.buttonText}
+      </div>
+    )
+  }
 }
 
 export default ResultButton;

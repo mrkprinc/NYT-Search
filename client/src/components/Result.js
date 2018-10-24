@@ -3,13 +3,6 @@ import {ResultButton} from './index';
 import moment from 'moment';
 
 class Result extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      status: 'click',
-    }
-  }
-  
   render() {
     return (
       <div className='searchResult'>
@@ -28,7 +21,6 @@ class Result extends React.Component {
             buttonClick={this.props.buttonClick} 
             index={this.props.index}
             resultSource={this.props.resultSource}
-            status={this.state.status}
           />
         </div>
       </div>
