@@ -12,7 +12,7 @@ router.route('/saved')
   })
   .post((req, res) => {
     console.log('-----------------------------------')
-    console.log(req.body);
+    console.log(req.body._id);
     db.Article
       .create({
         articleId: req.body._id,
