@@ -16,7 +16,7 @@ router.route('/saved')
         url: req.body.article.url,
         createdAt: Date.now()
       })
-      .then(err, response => {
+      .then((err,response) => {
         res.json(response);
       })
   })
