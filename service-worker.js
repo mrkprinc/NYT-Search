@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/nyt-search/precache-manifest.b88c9352beaa9a5c51a0ca0c8d39e95b.js"
+  "/NYT-Search/precache-manifest.210dd8955950f638c9740000dfbdd322.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/nyt-search/index.html", {
+workbox.routing.registerNavigationRoute("/NYT-Search/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
