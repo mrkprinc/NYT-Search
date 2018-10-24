@@ -13,6 +13,7 @@ router.route('/saved')
   .post((req, res) => {
     let newArticle = req.body;
     console.log('--------------------------');
+    console.log(typeof newArticle);
     console.log(newArticle);
     db.Article
       .create({
