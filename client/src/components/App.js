@@ -7,19 +7,21 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <main>
-          <h1>New York Times Search</h1>
-          <h3>find, save &amp; annotate articles</h3>
-          <nav>
-            <Link to='/'>Article Search</Link>
-            <Link to='/saved'>Saved Articles</Link>
-          </nav>
-
+        <div>
+          <header>
+            <h1>New York Times Search</h1>
+            <h3>find, save &amp; annotate articles</h3>
+            <nav>
+              <Link to='/'>Article Search</Link>
+              <Link to='/saved'>Saved Articles</Link>
+            </nav>
+          </header>
+        
           <Switch>
             <Route path='/saved' component={SavedPage} />
             <Route path='/' component={SearchPage} />
           </Switch>
-        </main>
+        </div>
       </Router>
     );
   }

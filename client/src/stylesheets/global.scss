@@ -7,10 +7,14 @@ $standard-margin: 8px;
   border-color: $color;
 }
 
+$standard-gradient: linear-gradient(170deg, rgba(0, 0, 0, 0.25), transparent);
+
 $black: #333;
 $grey: #777;
+$white: white;
 $red: red;
-$blue: blue;
+$blue: steelblue;
+$green: #46b4af;
 
 %xCenter {
   display: flex;

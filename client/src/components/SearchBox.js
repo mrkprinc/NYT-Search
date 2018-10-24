@@ -2,7 +2,7 @@ import React from 'react';
 
 const SearchBox = (props) => {
   return (
-    <section>
+    <section id='searchBox'>
       <form onSubmit={(e) => e.preventDefault()}>
         <div>
           <label htmlFor='txtTopic'>Topic: </label>
@@ -19,7 +19,9 @@ const SearchBox = (props) => {
           <input id='txtEndDate' type='text' placeholder='MM/DD/YYYY'></input>
         </div>
 
-        <div id='btnSearch' className='button' onClick={props.clickSearch}>Search</div>
+        <div>
+          <span id='btnSearch' className='button' onClick={props.clickSearch}>Search</span>
+        </div>
       </form>
     </section>
   ) 
