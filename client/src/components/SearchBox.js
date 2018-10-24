@@ -11,12 +11,12 @@ const SearchBox = (props) => {
 
         <div>
           <label htmlFor='txtStartDate'>Start Date: </label>
-          <input id='txtStartDate' type='text' placeholder='MM/DD/YYYY'></input>
+          <input id='txtStartDate' type='text' placeholder='YYYYMMDD'></input>
         </div>
 
         <div>
           <label htmlFor='txtEndDate'>End Date: </label>
-          <input id='txtEndDate' type='text' placeholder='MM/DD/YYYY'></input>
+          <input id='txtEndDate' type='text' placeholder='YYYYMMDD'></input>
         </div>
 
         <div>
