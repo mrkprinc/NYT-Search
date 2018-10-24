@@ -13,23 +13,24 @@ class SearchPage extends React.Component {
 
   clickSearch = e => {
     e.preventDefault();
-    // axios.get('https://intense-island-98620.herokuapp.com/api', {
-    //   params: {
-    //     query: document.getElementById('txtTopic').value.trim(),
-    //     startDate: document.getElementById('txtStartDate').value.trim(),
-    //     endDate: document.getElementById('txtEndDate').value.trim()
-    //   }
-    // }).then(response => console.log(response));
-    this.setState({
-      displayResults: true,
-      // TEMP
-      resultSet: [{
-        _id: 4,
-        headline: 'Test Head',
-        snippet: 'this is the story that happened',
-        date: 'on this day',
-        url: 'https://google.ca'
-      }]
+    this.setState({displayResults: true});
+    axios.get('https://intense-island-98620.herokuapp.com/api', {
+      params: {
+        query: document.getElementById('txtTopic').value.trim(),
+        startDate: document.getElementById('txtStartDate').value.trim(),
+        endDate: document.getElementById('txtEndDate').value.trim()
+      }
+    }).then(response => {
+      let resultSet = response.map(article => {
+        return {
+          _id: article._id,
+          headline: article.headline.main,
+          snippet: article.snippet,
+          date: article.pub_date,
+          url: article.web_url
+        }
+      })
+      this.setState({ resultSet });
     });
   }
 
