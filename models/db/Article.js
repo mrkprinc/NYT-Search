@@ -3,23 +3,19 @@ const Schema = mongoose.Schema;
 
 const ArticleSchema = new Schema({
   articleId: {
-    type: String,
-    required: true
+    type: String
   },
   title: {
-    type: String,
-    required: true
+    type: String
   },
   snippet: {
     type: String,
   },
   date: {
-    type: Date,
-    required: true
+    type: Date
   },
   url: {
-    type: String,
-    required: true
+    type: String
   },
   note: [{
     type: Schema.Types.ObjectId,
