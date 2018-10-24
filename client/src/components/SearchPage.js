@@ -46,7 +46,7 @@ class SearchPage extends React.Component {
     if(this.state.displayResults) {
       return (
         <main>
-          <SearchBox clickSearch={this.clickSearch} key={0} />,
+          <SearchBox clickSearch={this.clickSearch} key={0} />
           <ResultsPanel 
             resultSet={this.state.resultSet} 
             resultSource={'webAPI'} 
