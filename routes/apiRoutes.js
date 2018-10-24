@@ -8,8 +8,17 @@ router.route('/saved')
     res.send('get request');
   })
   .post((req, res) => {
-    // TEMP
-    res.send('post request');
+    db.Article
+      .create({
+        articleId: req.body.article._id,
+        title: req.body.article.headline,
+        date: req.body.article.date,
+        url: req.body.article.url,
+        createdAt: Date.now()
+      })
+      .then(err, response => {
+        res.json(response);
+      })
   })
   .delete((req, res) => {
     // TEMP

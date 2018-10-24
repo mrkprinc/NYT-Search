@@ -23,7 +23,6 @@ main {
 }
 
 section {
-  @extend %xCenter;
   padding: $standard-padding;
   margin: $standard-margin auto;
   background-image: $standard-gradient;
@@ -32,10 +31,7 @@ section {
     background-color: $green;
     border: none;
     form {
-<<<<<<< HEAD
-=======
       display: inline-block;
->>>>>>> master
       text-align: right;
       div {
         margin: 4px 0;
@@ -73,13 +69,10 @@ span, a {
   flex-shrink: 0;
 }
 
-<<<<<<< HEAD
-=======
 .grow {
   flex-grow: 1;
 }
 
->>>>>>> master
 .button {
   display: inline-block;
   cursor: pointer;

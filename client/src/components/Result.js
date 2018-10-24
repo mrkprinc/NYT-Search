@@ -4,7 +4,7 @@ const Result = (props) => {
   let buttonText = props.resultSource === 'webAPI' ? 'Save' : 'Delete'; // resultSource == webAPI or database
 
   return (
-    <div className='searchResult' onClick={props.clickSave} data-index={props.index}>
+    <div className='searchResult'>
       <div className='noShrink'>
         <span className='dateSpan'>{props.article.date}</span>
       </div>
@@ -16,7 +16,7 @@ const Result = (props) => {
 
       <div className='noShrink'>
         <a href={props.article.url} target='blank'>Go to Article</a>
-        <div className='button'>{buttonText}</div>
+        <div className='button' onClick={props.clickSave} data-index={props.index}>{buttonText}</div>
       </div>
     </div>
   )
