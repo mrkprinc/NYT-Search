@@ -44,7 +44,6 @@ class SearchPage extends React.Component {
     axios.post('https://intense-island-98620.herokuapp.com/api/saved', {
       article: this.state.resultSet[parseInt(el.getAttribute('data-index'))]
     }).then(response => {
-      console.log(response);
       el.classList.add('saved');
     }).catch(err => console.log(err));
   }
