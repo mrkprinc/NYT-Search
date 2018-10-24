@@ -5,14 +5,16 @@ const Result = (props) => {
 
   return (
     <div className='searchResult' onClick={props.clickSave} data-index={props.index}>
-      <strong>{props.article.headline}</strong>
-      <span className='dateSpan'>{props.article.date}</span>
+      <div className='noShrink'>
+        <span className='dateSpan'>{props.article.date}</span>
+      </div>
 
       <div>
+        <strong>{props.article.headline}</strong><br />
         {props.article.snippet}
       </div>
-      
-      <div>
+
+      <div className='noShrink'>
         <a href={props.article.url} target='blank'>Go to Article</a>
         <div className='button'>{buttonText}</div>
       </div>

@@ -26,39 +26,43 @@ section {
   @extend %xCenter;
   padding: $standard-padding;
   margin: $standard-margin auto;
-  @include standard-border($black);
   background-image: $standard-gradient;
 
   &#searchBox {
     background-color: $green;
     border: none;
+    form {
+      text-align: right;
+      div {
+        margin: 4px 0;
+        &:last-child {
+          text-align: center;
+        }
+      }
+      label, input {
+        padding: 2px;
+      }
+    }
   }
 
   &.resultsPanel {
-    text-align: left;
-
-    .dateSpan {
-      float: right;
+    .searchResult {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
     }
-
-    .button {
-      display: inline-block;
-    }
-  }
-}
-
-form {
-  text-align: right;
-
-  div {
-    margin: 4px 0;
-  }
-
-  label, input {
-    padding: 2px;
   }
 }
 
 span, a {
   margin: 0 6px;
+}
+
+.noShrink {
+  flex-shrink: 0;
+}
+
+.button {
+  display: inline-block;
+  cursor: pointer;
 }
