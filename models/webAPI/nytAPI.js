@@ -7,7 +7,7 @@ module.exports = {
       axios.get(url, {
         params: {
           'api-key': process.env.APIKEY,
-          'q': params.query,
+          'q': params.q,
           'begin_date': params.startDate,
           'end_date': params.endDate,
           'fl': 'web_url,snippet,headline,pub_date,byline,_id'
