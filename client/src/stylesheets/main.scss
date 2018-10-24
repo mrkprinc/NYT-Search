@@ -23,7 +23,6 @@ main {
 }
 
 section {
-  @extend %xCenter;
   padding: $standard-padding;
   margin: $standard-margin auto;
   background-image: $standard-gradient;
@@ -32,6 +31,7 @@ section {
     background-color: $green;
     border: none;
     form {
+      display: inline-block;
       text-align: right;
       div {
         margin: 4px 0;
@@ -50,6 +50,10 @@ section {
       display: flex;
       justify-content: space-between;
       width: 100%;
+      margin-bottom: 10px;
+      & > div {
+        text-align: left;
+      }
     }
   }
 }

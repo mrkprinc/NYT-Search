@@ -16,20 +16,22 @@ class SearchPage extends React.Component {
     this.setState({displayResults: true});
     axios.get('https://intense-island-98620.herokuapp.com/api', {
       params: {
-        query: document.getElementById('txtTopic').value.trim(),
-        startDate: document.getElementById('txtStartDate').value.trim(),
-        endDate: document.getElementById('txtEndDate').value.trim()
+        query: document.getElementById('txtTopic').value.trim() || 'Boston',
+        startDate: document.getElementById('txtStartDate').value.trim() || null,
+        endDate: document.getElementById('txtEndDate').value.trim() || null
       }
     }).then(response => {
-      let resultSet = response.map(article => {
-        return {
-          _id: article._id,
-          headline: article.headline.main,
-          snippet: article.snippet,
-          date: article.pub_date,
-          url: article.web_url
-        }
-      })
+      let resultSet = response.data
+        .filter(article => {return article.pub_date})
+        .map(article => {
+          return {
+            _id: article._id,
+            headline: article.headline.main,
+            snippet: article.snippet,
+            date: article.pub_date,
+            url: article.web_url
+          }
+        })
       this.setState({ resultSet });
     });
   }
