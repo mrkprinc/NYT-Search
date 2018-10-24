@@ -11,15 +11,17 @@ class SavedPage extends React.Component {
   }
 
   componentDidMount() {
-    axios
-      .get('https://intense-island-98620.herokuapp.com/api/saved')
+    fetch('https://intense-island-98620.herokuapp.com/api/saved')
       .then(response => {
-        console.log(response);
-        this.setState({ dataSet: response.data })
+        return response.json();
+      })
+      .then(dataSet => {
+        this.setState({ dataSet });
       })
   }
 
   render() {
+    console.log(this.state.dataSet)
     return (
       <ResultsPanel resultSet={this.state.dataSet} resultSource='db' />
     )

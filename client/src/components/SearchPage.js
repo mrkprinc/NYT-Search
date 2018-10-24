@@ -42,26 +42,13 @@ class SearchPage extends React.Component {
 
   clickSave = e => {
     let el = e.target;
-    console.log('click');
-    console.log(this.state.resultSet[parseInt(el.getAttribute('data-index'))])
     fetch('https://intense-island-98620.herokuapp.com/api/saved', {
       method: "POST", 
       headers: {
           "Content-Type": "application/json; charset=utf-8",
       },
       body: JSON.stringify(this.state.resultSet[parseInt(el.getAttribute('data-index'))])
-  })
-    // axios({
-    //   method: 'POST',
-    //   url: 'https://intense-island-98620.herokuapp.com/api/saved',
-    //   data: this.state.resultSet[parseInt(el.getAttribute('data-index'))]
-    // })
-    //   // .post('https://intense-island-98620.herokuapp.com/api/saved', this.state.resultSet[parseInt(el.getAttribute('data-index'))])
-    //   .then(response => {
-    //     console.log(response)
-    //     el.classList.add('saved');
-    //   })
-    //   .catch(err => console.log(err));
+    })
   }
 
   render() {

@@ -11,14 +11,10 @@ router.route('/saved')
       }).catch(err => console.log(err));
   })
   .post((req, res) => {
-    let newArticle = req.body;
-    console.log('--------------------------');
-    console.log(typeof newArticle);
-    console.log(newArticle);
     db.Article
       .create({
         articleId: req.body._id,
-        title: req.body.headline,
+        title: req.body.title,
         snippet: req.body.snippet,
         date: req.body.date,
         url: req.body.url,
@@ -30,7 +26,6 @@ router.route('/saved')
       .catch(err => console.log(err));
   })
   .delete((req, res) => {
-    // TEMP
     res.send('delete request');
   })
 
