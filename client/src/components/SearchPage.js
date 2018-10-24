@@ -37,11 +37,11 @@ class SearchPage extends React.Component {
   }
 
   clickSave = e => {
-    axios.post('https://intense-island-98620.herokuapp.com/api', {
-      article: this.state.resultSet[parseInt(e.target.getAttribute('data-index'))]
+    let el = e.target;
+    axios.post('https://intense-island-98620.herokuapp.com/api/saved', {
+      article: this.state.resultSet[parseInt(el.getAttribute('data-index'))]
     }).then(response => {
-      console.log(response);
-      e.target.classList.add('saved');
+      el.classList.add('saved');
     }).catch(err => console.log(err));
   }
 
