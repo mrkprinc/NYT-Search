@@ -3,6 +3,6 @@ node {
     FONTAWESOME_TOKEN = credentials('FONTAWESOME_TOKEN')
   }
   checkout scm
-  def testImage = docker.build("nyt-search", "--build-arg ${$FONTAWESOME_TOKEN} .")
+  def testImage = docker.build("nyt-search", "--build-arg ${env.FONTAWESOME_TOKEN} .")
 }
 
