@@ -1,7 +1,5 @@
-#!groovy
-
-node {
-  try {
+pipeline {
+  stages {
     stage('Environment') {
       sh "id"
       sh "node -v"
@@ -18,10 +16,8 @@ node {
     }
 
     stage ('Build Project') {
-      app = docker.build("quantummob/drip2")
+      app = docker.build("nyt-app")
     }
   }
-  catch(err) {
-    throw err
-  }
 }
+
