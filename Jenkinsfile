@@ -1,11 +1,5 @@
 pipeline {
   stages {
-    stage('Environment') {
-      sh "id"
-      sh "node -v"
-      sh "npm -v"
-    }
-
     stage ('Checkout') {
       checkout scm
     }
