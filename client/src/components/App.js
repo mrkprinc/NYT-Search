@@ -1,7 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
 import {SearchPage, SavedPage} from './index';
-import './App.css';
 
 class App extends React.Component {
   render() {

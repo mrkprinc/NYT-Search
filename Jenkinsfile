@@ -1,15 +1,27 @@
-pipeline {
-  agent {
-    docker {
-      image 'node:6-alpine'
-      args '-p 3000:3000'
+#!groovy
+
+node {
+  try {
+    stage('Environment') {
+      sh "id"
+      sh "node -v"
+      sh "npm -v"
+    }
+
+    stage ('Checkout') {
+      checkout scm
+    }
+
+    stage ('Clean Dependencies') {
+      sh 'sudo rm -rf node_modules'
+      sh 'sudo rm -rf build'
+    }
+
+    stage ('Build Project') {
+      app = docker.build("quantummob/drip2")
     }
   }
-  stages {
-    stage('Build') {
-      steps {
-        sh 'npm install'
-      }
-    }
+  catch(err) {
+    throw err
   }
 }
