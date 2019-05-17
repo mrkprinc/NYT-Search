@@ -4,6 +4,7 @@
   "main": "server.js",
   "author": "mrkprinc <36653433+mrkprinc@users.noreply.github.com>",
   "dependencies": {
+    "@fortawesome/fontawesome-pro": "^5.8.2",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
