@@ -16,7 +16,7 @@ pipeline {
 
     stage ('Build Project') {
       steps {
-        app = docker.build("nyt-app")
+        def app = docker.build("nyt-app")
       }
     }
   }
