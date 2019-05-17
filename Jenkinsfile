@@ -1,16 +1,23 @@
 pipeline {
+  agent { dockerfile true }
   stages {
     stage ('Checkout') {
-      checkout scm
+      steps {
+        checkout scm
+      }
     }
 
     stage ('Clean Dependencies') {
-      sh 'sudo rm -rf node_modules'
-      sh 'sudo rm -rf build'
+      steps {
+        sh 'sudo rm -rf node_modules'
+        sh 'sudo rm -rf build'
+      }
     }
 
     stage ('Build Project') {
-      app = docker.build("nyt-app")
+      steps {
+        app = docker.build("nyt-app")
+      }
     }
   }
 }
